@@ -35,7 +35,7 @@ public class PayoutDonorsCommand implements CommandExecutor {
 
 			for(String group : user.getGroupsNames()) { // Iterate over all groups the user is in
 				if(group.contains("VIP")) {
-					if(group.equals("VIP")) groupVal = 150; // The group "VIP" counts as 150VIP
+					if(group.equals("VIP")) groupVal = 250; // The group "VIP" counts as 150VIP
 					else{
 						groupVal = Integer.parseInt(group.substring(0,group.length()-3)); // Get the number from before VIP
 					}
