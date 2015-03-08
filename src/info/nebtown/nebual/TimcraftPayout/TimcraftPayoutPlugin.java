@@ -7,10 +7,12 @@ import info.nebtown.nebual.TimcraftPayout.Exceptions.PluginNotFoundException;
 import java.util.logging.Logger;
 
 import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.melonbrew.fe.Fe;
 
 import ru.tehkode.permissions.PermissionManager;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
@@ -18,6 +20,8 @@ import ru.tehkode.permissions.bukkit.PermissionsEx;
 public class TimcraftPayoutPlugin extends JavaPlugin {
 	public PermissionManager pex;
 	public static Economy economy = null;
+	public static Permission permission = null;
+	public static Fe fe = null;
 
 	public void onEnable() {
 		try {
@@ -35,6 +39,15 @@ public class TimcraftPayoutPlugin extends JavaPlugin {
 
 		getCommand("payoutdonors").setExecutor(new PayoutDonorsCommand(this));
 	}
+	
+	private boolean initializePermissions()
+    {
+        RegisteredServiceProvider<Permission> permissionProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
+        if (permissionProvider != null) {
+            permission = permissionProvider.getProvider();
+        }
+        return (permission != null);
+    }
 
 	private void initializePermissionsEx() throws PluginNotFoundException {
 		Plugin plugin = getPlugin("PermissionsEx");
@@ -47,6 +60,7 @@ public class TimcraftPayoutPlugin extends JavaPlugin {
 	
 	private boolean initializeEconomy()
     {
+		fe = (Fe) getServer().getPluginManager().getPlugin("Fe");
         RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
         if (economyProvider != null) {
             economy = economyProvider.getProvider();

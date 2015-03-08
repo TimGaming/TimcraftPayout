@@ -1,0 +1,12 @@
+name: Timcraft Payout Module
+main: info.nebtown.nebual.TimcraftPayout.TimcraftPayoutPlugin
+version: 2.0
+depend: [PermissionsEx, Vault, Fe]
+website: http://nebtown.info
+author: Nebual
+maintainer: boar401s2
+description: Timcraft VIP Payout Module by Nebual
+commands:
+  payoutdonors:
+    description: Pays VIPs their one time payments
+    usage: /<command>

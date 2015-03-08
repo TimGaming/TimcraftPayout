@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="C:/Users/John/Documents/Plugin Development/plugins/Vault.jar"/>
 	<classpathentry kind="lib" path="C:/Users/John/Documents/Plugin Development/plugins/PermissionsEx-1.23.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/John/Documents/Plugin Development/spigot.jar"/>
+	<classpathentry kind="lib" path="C:/Users/John/Documents/Plugin Development/plugins/Fe.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
